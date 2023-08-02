@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Repository;
-use App\Service\PDOService;
 
+use App\Service\PDOService;
 use App\Models\Actor;
 
 class ActorRepository
@@ -26,7 +26,7 @@ class ActorRepository
     {
         $query = $this->pdoService->getPdo()->prepare("INSERT INTO actor(first_name, last_name) VALUES(:first_name, :last_name)");
         $query->bindParam(':first_name', $actor['firstName']);
-        $query->bindParam(':last_name', $actor['firstName']);
+        $query->bindParam(':last_name', $actor['lastName']);
         $query->execute();
     }
 }

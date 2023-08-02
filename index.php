@@ -3,7 +3,6 @@
 include_once __DIR__ . '/vendor/autoload.php';
 
 use App\Repository\MovieRepository;
-
 use App\Repository\ActorRepository;
 
 $movieRepository = new MovieRepository();
@@ -73,8 +72,8 @@ $actors = $actorRepository->findAll();
         <table style="border: solid;">
             <tr style="border: solid;">
                 <th style="text-align: center; border: solid;">id</th>
-                <th style="text-align: center; border: solid;">titre</th>
-                <th style="text-align: center;">date de sortie</th>
+                <th style="text-align: center; border: solid;">prenom</th>
+                <th style="text-align: center;">nom</th>
             </tr>
             <?php foreach($actors as $actor) : ?>
                 <tr style="border: solid;">
