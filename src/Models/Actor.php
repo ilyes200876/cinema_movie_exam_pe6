@@ -6,9 +6,9 @@ class Actor
 {
     private int $id;
 
-    private ?string $firstName;
+    private ?string $first_name;
 
-    private string $lastName;
+    private string $last_name;
 
     public function getId(): int
     {
@@ -22,21 +22,21 @@ class Actor
 
     public function getFirstName(): ?string
     {
-        return $this->firstName;
+        return $this->first_name;
     }
 
-    public function setFirstName(?string $firstName): void
+    public function setFirstName(?string $first_name): void
     {
-        $this->firstName = $firstName;
+        $this->first_name = $first_name;
     }
 
     public function getLastName(): string
     {
-        return $this->lastName;
+        return $this->last_name;
     }
 
-    public function setLastName(string $lastName): void
+    public function setLastName(string $last_name): void
     {
-        $this->lastName = $lastName;
+        $this->last_name = $last_name;
     }
 }

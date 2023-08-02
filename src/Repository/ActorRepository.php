@@ -18,15 +18,19 @@ class ActorRepository
     public function findAll():array
     {
         $query = $this->pdoService->getPdo()->query("SELECT * from actor");
-        return $query->fetchAll(\PDO::FETCH_ASSOC);
+        return $query->fetchAll(\PDO::FETCH_CLASS, Actor::class);
     }
 
     //Actor si en objet
-    public function insertActor(array $actor)
+    public function insertActor(Actor $actor): Actor
     {
-        $query = $this->pdoService->getPdo()->prepare("INSERT INTO actor(first_name, last_name) VALUES(:first_name, :last_name)");
-        $query->bindParam(':first_name', $actor['firstName']);
-        $query->bindParam(':last_name', $actor['lastName']);
+        $actor = new Actor();
+        $firstName = $actor->getFirstName();
+        $lastName = $actor->getLastName();
+        $query = $this->pdoService->getPdo()->prepare("INSERT INTO actor Value(NULL, :first_name, :last_name)");
+        $query->bindParam(':first_name', $firstName);
+        $query->bindParam(':last_name', $lastName);
         $query->execute();
+        return $actor;
     }
 }

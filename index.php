@@ -2,6 +2,7 @@
 
 include_once __DIR__ . '/vendor/autoload.php';
 
+use App\Models\Actor;
 use App\Repository\MovieRepository;
 use App\Repository\ActorRepository;
 
@@ -11,6 +12,7 @@ $actorRepository = new ActorRepository();
 $movies = $movieRepository->findAll();
 $actors = $actorRepository->findAll();
 
+var_dump($movies);
 
 
 
@@ -57,9 +59,9 @@ $actors = $actorRepository->findAll();
             </tr>
             <?php foreach($movies as $movie) : ?>
                 <tr style="border: solid;">
-                    <td style="border: solid;"><?= $movie['id'] ?></td>
-                    <td style="border: solid;"><?= $movie['title'] ?></td>
-                    <td style="border: solid;"><?= $movie['release_date'] ?></td>
+                    <td style="border: solid;"><?= $movie->getId() ?></td>
+                    <td style="border: solid;"><?= $movie->getTitle() ?></td>
+                    <td style="border: solid;"><?= $movie->getReleaseDate()->format('d/m/Y') ?></td>
                 </tr>
             <?php endforeach ?>
         </table>
@@ -74,12 +76,12 @@ $actors = $actorRepository->findAll();
                 <th style="text-align: center; border: solid;">id</th>
                 <th style="text-align: center; border: solid;">prenom</th>
                 <th style="text-align: center;">nom</th>
-            </tr>
+            </tr>   
             <?php foreach($actors as $actor) : ?>
                 <tr style="border: solid;">
-                    <td style="border: solid;"><?= $actor['id'] ?></td>
-                    <td style="border: solid;"><?= $actor['first_name'] ?></td>
-                    <td style="border: solid;"><?= $actor['last_name'] ?></td>
+                    <td style="border: solid;"><?= $actor->getId() ?></td>
+                    <td style="border: solid;"><?= $actor->getFirstName() ?></td>
+                    <td style="border: solid;"><?= $actor->getLastName() ?></td>
                 </tr>
             <?php endforeach ?>
         </table>

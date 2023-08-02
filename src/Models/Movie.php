@@ -10,7 +10,7 @@ class Movie
 
     private string $title;
 
-    private DateTime|string $releaseDate;
+    private DateTime|string $release_date;
 
     private array $actors = [];
 
@@ -39,12 +39,12 @@ class Movie
      */
     public function getReleaseDate(): DateTime
     {
-        return (! $this->releaseDate instanceof DateTime) ? new DateTime($this->releaseDate) : $this->releaseDate;
+        return (! $this->release_date instanceof DateTime) ? new DateTime($this->release_date) : $this->release_date;
     }
 
-    public function setReleaseDate(DateTime $releaseDate): void
+    public function setReleaseDate(DateTime $release_date): void
     {
-        $this->releaseDate = $releaseDate;
+        $this->release_date = $release_date;
     }
 
     public function getActors(): array
